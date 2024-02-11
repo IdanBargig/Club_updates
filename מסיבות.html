@@ -38,40 +38,37 @@
 </head>
 <body>
 
- <div class="viewer-counter" id="viewerCounter">Your views: 0</div>
+ <div class="view-counter" id="viewCounter">Views: 0</div>
 
     <script>
-        // JavaScript for updating view count for each individual viewer
-        let viewerId = generateViewerId();
-        let viewerCount = localStorage.getItem(viewerId) || 0;
+        // JavaScript for updating view count hourly and resetting at midnight
+        let viewCount = localStorage.getItem('viewCount') || 0;
+        document.getElementById('viewCounter').innerText = `Views: ${viewCount}`;
 
-        document.getElementById('viewerCounter').innerText = `Your views: ${viewerCount}`;
-
-        function updateViewerCount() {
-            viewerCount++;
-            document.getElementById('viewerCounter').innerText = `Your views: ${viewerCount}`;
-            localStorage.setItem(viewerId, viewerCount);
+        // Function to update view count hourly
+        function updateViewCountHourly() {
+            viewCount++;
+            document.getElementById('viewCounter').innerText = `Views: ${viewCount}`;
+            localStorage.setItem('viewCount', viewCount);
         }
 
-        // Function to generate a unique viewer ID (you might want to improve this)
-        function generateViewerId() {
-            return 'viewer_' + Math.random().toString(36).substr(2, 9);
+        // Function to reset view count at midnight
+        function resetViewCount() {
+            viewCount = 0;
+            document.getElementById('viewCounter').innerText = `Views: ${viewCount}`;
+            localStorage.setItem('viewCount', viewCount);
         }
 
-        // Call the function on page load
-        updateViewerCount();
+        // Update view count hourly
+        setInterval(updateViewCountHourly, 3600000); // 3600000 milliseconds = 1 hour
 
-        // Schedule a daily reset at 00:00
-        setInterval(() => {
-            const now = new Date();
-            if (now.getHours() === 0 && now.getMinutes() === 0) {
-                localStorage.setItem(viewerId, 0);
-                document.getElementById('viewerCounter').innerText = `Your views: 0`;
-            }
-        }, 60000); // Check every minute
+        // Reset view count at midnight
+        const now = new Date();
+        const midnight = new Date(now);
+        midnight.setHours(24, 0, 0, 0); // Set to midnight
+        const timeUntilMidnight = midnight - now;
+        setTimeout(resetViewCount, timeUntilMidnight);
     </script>
-
-    <button onclick="updateViewerCount()">Update Your Views</button>
     
     <h1>Club Updates</h1>
     
