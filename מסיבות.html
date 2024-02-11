@@ -37,6 +37,23 @@
     </style>
 </head>
 <body>
+
+    <p>כמות הצופים באתר היא: <span id="viewCount">0</span></p>
+
+    <script>
+        // JavaScript לעדכון של כמות הצופים
+        let viewCount = localStorage.getItem('viewCount') || 0;
+        document.getElementById('viewCount').innerText = viewCount;
+
+        function updateViewCount() {
+            viewCount++;
+            document.getElementById('viewCount').innerText = viewCount;
+            localStorage.setItem('viewCount', viewCount);
+        }
+
+        // קריאה לפונקציה בעת טעינת הדף
+        updateViewCount();
+    </script>
     
     <h1>Club Updates</h1>
     
