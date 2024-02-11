@@ -41,34 +41,40 @@
  <div class="view-counter" id="viewCounter">Views: 0</div>
 
     <script>
-        // JavaScript for updating view count hourly and resetting at midnight
+        // JavaScript for updating view count
         let viewCount = localStorage.getItem('viewCount') || 0;
-        document.getElementById('viewCounter').innerText = `Views: ${viewCount}`;
 
-        // Function to update view count hourly
-        function updateViewCountHourly() {
+        function updateViewCount() {
             viewCount++;
             document.getElementById('viewCounter').innerText = `Views: ${viewCount}`;
             localStorage.setItem('viewCount', viewCount);
         }
 
-        // Function to reset view count at midnight
-        function resetViewCount() {
-            viewCount = 0;
-            document.getElementById('viewCounter').innerText = `Views: ${viewCount}`;
-            localStorage.setItem('viewCount', viewCount);
+        // Call updateViewCount() when any link on the page is clicked
+        document.addEventListener('click', function(event) {
+            if (event.target.tagName === 'A') {
+                updateViewCount();
+            }
+        });
+
+        // Function to update view count at 00:00
+        function updateViewCountAtMidnight() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            
+            // Check if it's 00:00:00
+            if (hours === 0 && minutes === 0 && seconds === 0) {
+                localStorage.setItem('viewCount', 0);
+                document.getElementById('viewCounter').innerText = 'Views: 0';
+            }
         }
 
-        // Update view count hourly
-        setInterval(updateViewCountHourly, 3600000); // 3600000 milliseconds = 1 hour
-
-        // Reset view count at midnight
-        const now = new Date();
-        const midnight = new Date(now);
-        midnight.setHours(24, 0, 0, 0); // Set to midnight
-        const timeUntilMidnight = midnight - now;
-        setTimeout(resetViewCount, timeUntilMidnight);
+        // Call updateViewCountAtMidnight() every second
+        setInterval(updateViewCountAtMidnight, 1000);
     </script>
+
     
     <h1>Club Updates</h1>
     
