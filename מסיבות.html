@@ -40,32 +40,36 @@
 
    <p>Your individual view count is: <span class="viewerCount" id="individualViewCount">0</span></p>
 
-    <div class="user-counter" id="user1">User 1: 0 views</div>
-    <div class="user-counter" id="user2">User 2: 0 views</div>
-    <div class="user-counter" id="user3">User 3: 0 views</div>
+    <div class="ip-counter" id="ipCounter">Views from your IP: 0</div>
 
     <script>
-        // JavaScript for updating user view counts
-        let userViewCounts = {
-            user1: localStorage.getItem('userViewCount1') || 0,
-            user2: localStorage.getItem('userViewCount2') || 0,
-            user3: localStorage.getItem('userViewCount3') || 0
-        };
+        // JavaScript for updating view count based on IP
+        const userIP = getUserIP();
 
-        for (let user in userViewCounts) {
-            document.getElementById(user).innerText = `${user}: ${userViewCounts[user]} views`;
+        let viewCount = sessionStorage.getItem(userIP) || 0;
+        document.getElementById('ipCounter').innerText = `Views from your IP: ${viewCount}`;
+
+        function updateViewCount() {
+            viewCount++;
+            document.getElementById('ipCounter').innerText = `Views from your IP: ${viewCount}`;
+            sessionStorage.setItem(userIP, viewCount);
         }
 
-        function updateUserViewCount(userId) {
-            userViewCounts[userId]++;
-            document.getElementById(userId).innerText = `${userId}: ${userViewCounts[userId]} views`;
-            localStorage.setItem(`userViewCount${userId.slice(-1)}`, userViewCounts[userId]);
+        // Function to get user's IP address
+        function getUserIP() {
+            // This is a simple way to get the user's IP, but may not work in all cases
+            // You might want to use a server-side solution for a more accurate IP detection
+            return new Promise((resolve, reject) => {
+                fetch('https://api64.ipify.org?format=json')
+                    .then(response => response.json())
+                    .then(data => resolve(data.ip))
+                    .catch(error => reject(error));
+            });
         }
+
+        // Call the function on page load
+        updateViewCount();
     </script>
-
-    <button onclick="updateUserViewCount('user1')">User 1 Viewed</button>
-    <button onclick="updateUserViewCount('user2')">User 2 Viewed</button>
-    <button onclick="updateUserViewCount('user3')">User 3 Viewed</button>
     
     <h1>Club Updates</h1>
     
