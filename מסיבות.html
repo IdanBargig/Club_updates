@@ -38,38 +38,32 @@
 </head>
 <body>
 
-<div class="view-counter" id="viewCounter">Total Views: 0</div>
+<div class="view-counter" id="viewCounter">Views today: 0</div>
 
     <script>
-        // JavaScript for updating view count
-        let lastVisit = getCookie('lastVisit');
-        let currentDate = new Date().getTime();
-        let viewCount = parseInt(localStorage.getItem('viewCount')) || 0;
+        // JavaScript for updating view count daily
+        let lastUpdateDate = localStorage.getItem('lastUpdateDate');
+        let viewCount = localStorage.getItem('viewCount') || 0;
 
-        // Check if 24 hours have passed since the last visit
-        if (!lastVisit || currentDate - lastVisit >= 24 * 60 * 60 * 1000) {
+        const currentDate = new Date().toLocaleDateString();
+
+        if (lastUpdateDate !== currentDate) {
+            // Reset view count if it's a new day
+            viewCount = 0;
+            localStorage.setItem('lastUpdateDate', currentDate);
+        }
+
+        document.getElementById('viewCounter').innerText = `Views today: ${viewCount}`;
+
+        function updateViewCount() {
             viewCount++;
-            setCookie('lastVisit', currentDate);
+            document.getElementById('viewCounter').innerText = `Views today: ${viewCount}`;
             localStorage.setItem('viewCount', viewCount);
         }
-
-        document.getElementById('viewCounter').innerText = `Total Views: ${viewCount}`;
-
-        // Function to get cookie value
-        function getCookie(name) {
-            const value = `; ${document.cookie}`;
-            const parts = value.split(`; ${name}=`);
-            if (parts.length === 2) return parts.pop().split(';').shift();
-        }
-
-        // Function to set cookie value
-        function setCookie(name, value, expirationHours = 24) {
-            const d = new Date();
-            d.setTime(d.getTime() + (expirationHours * 60 * 60 * 1000));
-            const expires = `expires=${d.toUTCString()}`;
-            document.cookie = `${name}=${value};${expires};path=/`;
-        }
     </script>
+
+    <button onclick="updateViewCount()">Update View Count</button>
+
     
     <h1>Club Updates</h1>
     
