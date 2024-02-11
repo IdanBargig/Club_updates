@@ -38,41 +38,34 @@
 </head>
 <body>
 
- <div class="view-counter" id="viewCounter">Views: 0</div>
-
-    <script>
-        // JavaScript for updating view count
-        let viewCount = localStorage.getItem('viewCount') || 0;
-
+ <script>
+        // Update view count at 00:00
         function updateViewCount() {
-            viewCount++;
-            document.getElementById('viewCounter').innerText = `Views: ${viewCount}`;
-            localStorage.setItem('viewCount', viewCount);
-        }
-
-        // Call updateViewCount() when any link on the page is clicked
-        document.addEventListener('click', function(event) {
-            if (event.target.tagName === 'A') {
-                updateViewCount();
-            }
-        });
-
-        // Function to update view count at 00:00
-        function updateViewCountAtMidnight() {
             const now = new Date();
             const hours = now.getHours();
             const minutes = now.getMinutes();
-            const seconds = now.getSeconds();
-            
-            // Check if it's 00:00:00
-            if (hours === 0 && minutes === 0 && seconds === 0) {
+            if (hours === 0 && minutes === 0) {
                 localStorage.setItem('viewCount', 0);
-                document.getElementById('viewCounter').innerText = 'Views: 0';
             }
         }
 
-        // Call updateViewCountAtMidnight() every second
-        setInterval(updateViewCountAtMidnight, 1000);
+        // Increment view count when clicking on links
+        function incrementViewCount() {
+            let viewCount = localStorage.getItem('viewCount') || 0;
+            viewCount++;
+            localStorage.setItem('viewCount', viewCount);
+        }
+    </script>
+</head>
+<body onload="updateViewCount()">
+    <h1>Welcome to My Website</h1>
+    <p>This website has been viewed <span id="viewCountDisplay">0</span> times.</p>
+    <a href="#" onclick="incrementViewCount()">Link 1</a>
+    <a href="#" onclick="incrementViewCount()">Link 2</a>
+    <a href="#" onclick="incrementViewCount()">Link 3</a>
+    <script>
+        // Display the view count
+        document.getElementById('viewCountDisplay').innerText = localStorage.getItem('viewCount') || 0;
     </script>
 
     
