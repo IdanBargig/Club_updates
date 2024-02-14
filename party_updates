@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>עדכוני מסיבות</title>
     <style>
-        /* סגנון להגדרת צבע הלינק לשחור */
+                /* סגנון להגדרת צבע הלינק לשחור */
         a {
             color: black;
             font-weight: bold; /* גופן מודגש (בולט) */
@@ -17,81 +16,76 @@
             text-decoration: underline; /* הוספת קו תחתון בעת העברת העכבר */
         }
     </style>
+    
+<style>
+    body {
+      animation: changeColor 30s infinite;
+    }
 
-    <style>
-        body {
-            animation: changeColor 30s infinite;
-        }
-
-        @keyframes changeColor {
-            0%,
-            100% {
-                background-color: #FF0000;
-            }
-
-            10% {
-                background-color: #FF4500;
-            }
-
-            20% {
-                background-color: #FF8C00;
-            }
-
-            30% {
-                background-color: #FFD700;
-            }
-
-            40% {
-                background-color: #ADFF2F;
-            }
-
-            50% {
-                background-color: #32CD32;
-            }
-
-            60% {
-                background-color: #00FF7F;
-            }
-
-            70% {
-                background-color: #00CED1;
-            }
-
-            80% {
-                background-color: #4169E1;
-            }
-
-            90% {
-                background-color: #8A2BE2;
-            }
-        }
-    </style>
+    @keyframes changeColor {
+      0%, 100% {
+        background-color: #FF0000;
+      }
+      10% {
+        background-color: #FF4500;
+      }
+      20% {
+        background-color: #FF8C00;
+      }
+      30% {
+        background-color: #FFD700;
+      }
+      40% {
+        background-color: #ADFF2F;
+      }
+      50% {
+        background-color: #32CD32;
+      }
+      60% {
+        background-color: #00FF7F;
+      }
+      70% {
+        background-color: #00CED1;
+      }
+      80% {
+        background-color: #4169E1;
+      }
+      90% {
+        background-color: #8A2BE2;
+      }
+    }
+  </style>
 </head>
 
+ <script>
+        // Function to increment view count and update display
+        function incrementViewCount() {
+            let viewCount = localStorage.getItem('viewCount') || 0;
+            viewCount++;
+            localStorage.setItem('viewCount', viewCount);
+            document.getElementById('viewCountDisplay').innerText = viewCount;
+        }
+
+        // Function to reset view count at 00:00
+        function resetViewCount() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            if (hours === 0 && minutes === 0) {
+                localStorage.setItem('viewCount', 0);
+                document.getElementById('viewCountDisplay').innerText = 0;
+            }
+        }
+    </script>
 <body>
-    <header>
-        <h1>Club Updates</h1>
-    </header>
+    <h1>Club Updates</h1>
 
-    <!-- Navigation Links -->
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="page1.html">מסיבות בוגרים</a></li>
-            <li><a href="page2.html">מסיבות נוער</a></li>
-            <!-- Add more navigation links as needed -->
-        </ul>
-    </nav>
-
-    <!-- Main Content -->
-    <main>
-        <!-- Club 1 -->
-        <div class="club1">
-            <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65b9a4b837a19a67006170fd1706665260749_coverImage.jpg" alt="Club Image" width="100" height="100">
-            <a href="https://www.go-out.co/event/1706665144540?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> HAMISHI HAVERI • PURIM PARTY <br> 21 March <br> 23:00 - 06:00 </a>
-        </div>
-        <br>
-        <br>
+    <!-- Club 1 -->
+    <div class="club1">
+        <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65b9a4b837a19a67006170fd1706665260749_coverImage.jpg" alt="Club Image" width="100" height="100">
+        <a href="https://www.go-out.co/event/1706665144540?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> HAMISHI HAVERI • PURIM PARTY <br> 21 March <br> 23:00 - 06:00 </a>
+    </div>
+    <br>
     <!-- Club 2 -->
     <div class="club2">
         <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65b99e7af7787b634cfb3ee71706663544122_coverImage.jpg" alt="Club Image" width="100" height="100">
@@ -146,8 +140,7 @@
         <a href="https://www.go-out.co/event/kishkush?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> Kish-Kush Festival - HAMAM <br> 29 February <br> 23:00 - 05:30 </a>
     </div>
 </div>
-    </main>
-
+    
     <!-- Display the view count -->
     <p>The amount of times you have viewed the links now: <span id="viewCountDisplay">0</span></p>
 
@@ -156,10 +149,9 @@
     <script>
         // Call the function to reset view count at 00:00
         resetViewCount();
-
+        
         // Display the initial view count
         document.getElementById('viewCountDisplay').innerText = localStorage.getItem('viewCount') || 0;
     </script>
 </body>
-
 </html>
