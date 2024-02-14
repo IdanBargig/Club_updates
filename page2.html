@@ -17,6 +17,68 @@
             padding: 20px;
         }
     </style>
+<style>
+        /* סגנון להגדרת צבע הלינק לשחור */
+        a {
+            color: black;
+            font-weight: bold; /* גופן מודגש (בולט) */
+            text-decoration: none; /* להסיר קווים תחתונים מהלינק */
+        }
+
+        /* סגנון עבור לינק כאשר המשתמש מעביר עליו את העכבר */
+        a:hover {
+            text-decoration: underline; /* הוספת קו תחתון בעת העברת העכבר */
+        }
+    </style>
+
+    <style>
+        body {
+            animation: changeColor 30s infinite;
+        }
+
+        @keyframes changeColor {
+            0%,
+            100% {
+                background-color: #FF0000;
+            }
+
+            10% {
+                background-color: #FF4500;
+            }
+
+            20% {
+                background-color: #FF8C00;
+            }
+
+            30% {
+                background-color: #FFD700;
+            }
+
+            40% {
+                background-color: #ADFF2F;
+            }
+
+            50% {
+                background-color: #32CD32;
+            }
+
+            60% {
+                background-color: #00FF7F;
+            }
+
+            70% {
+                background-color: #00CED1;
+            }
+
+            80% {
+                background-color: #4169E1;
+            }
+
+            90% {
+                background-color: #8A2BE2;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
