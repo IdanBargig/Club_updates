@@ -1,44 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מסיבות בוגרים</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>עדכוני מסיבות בוגרים</title>
     <style>
+        /* כללי */
         body {
-            background-color: white; /* רקע כולל */
-            color: black; /* צבע טקסט */
-            font-family: Arial, sans-serif;
-        }
-        header {
-            background-color: black; /* רקע הכותרת */
-            color: white; /* צבע הטקסט בכותרת */
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
-<style>
-        /* סגנון להגדרת צבע הלינק לשחור */
-        a {
-            color: black;
-            font-weight: bold; /* גופן מודגש (בולט) */
-            text-decoration: none; /* להסיר קווים תחתונים מהלינק */
-        }
-
-        /* סגנון עבור לינק כאשר המשתמש מעביר עליו את העכבר */
-        a:hover {
-            text-decoration: underline; /* הוספת קו תחתון בעת העברת העכבר */
-        }
-    </style>
-
-    <style>
-        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
             animation: changeColor 30s infinite;
         }
 
         @keyframes changeColor {
-            0%,
-            100% {
+            0%, 100% {
                 background-color: #FF0000;
             }
 
@@ -78,84 +56,272 @@
                 background-color: #8A2BE2;
             }
         }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        h1 {
+            margin: 0;
+            animation: glow 2s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            }
+
+            50% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+            }
+        }
+
+        nav {
+            background-color: #007BFF;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            margin: 0 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #0056b3;
+        }
+
+        main {
+            padding: 1em;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .club {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .club:hover {
+            transform: scale(1.03);
+        }
+
+        .club img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+        }
+
+        .club-details {
+            padding: 1em;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .club-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+        }
+
+        .club-date {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 0.5em;
+        }
+
+        .club-link {
+            color: #007BFF;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .club-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
     </style>
 </head>
-<body>
-    <header>
-        <h1>מסיבות בוגרים</h1>
-    </header>
-        <!-- Main Content -->
 
-        <!-- Navigation Links -->
+<body>
+
+    <header>
+        <h1>עדכוני מסיבות נוער</h1>
+    </header>
+
+    <!-- Navigation Links -->
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <!-- Add more navigation links as needed -->
-        </ul>
+        <a href="index.html">עדכוני מסיבות</a>
     </nav>
-    <!-- כאן תוכל להוסיף תוכן נוסף שלך -->    
+
+    <!-- Main Content -->
     <main>
-    <!-- Club 1 -->
-    <div class="club1">
-        <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65b9a4b837a19a67006170fd1706665260749_coverImage.jpg" alt="Club Image" width="100" height="100">
-        <a href="https://www.go-out.co/event/1706665144540?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> HAMISHI HAVERI • PURIM PARTY <br> 21 March <br> 23:00 - 06:00 </a>
-    </div>
-    <br>
-    <!-- Club 2 -->
-    <div class="club2">
-        <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65b99e7af7787b634cfb3ee71706663544122_coverImage.jpg" alt="Club Image" width="100" height="100">
-        <a href="https://www.go-out.co/event/1706663452853?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> SHISHI HAVERI • PURIM PARTY <br> 22 March <br> 23:00 - 05:00 </a>
-    </div>
-    <br>
-    <!-- Club 3 -->
-    <div class="club3">
-        <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65adb595915f1cc01772a0271706909445084_coverImage.jpg" alt="Club Image" width="100" height="100">
-        <a href="https://www.go-out.co/event/1705883029587?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> PURIM HAMAM FESTIVAL <br> 21 March <br> 23:00 - 06:00 </a>
-    </div>
-    <br>
-    <!-- Club 4 -->
-    <div class="club4">
-        <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65b1250e0bcaaf7e5833ba021706907197595_coverImage.jpg" alt="Club Image" width="100" height="100">
-        <a href="https://www.go-out.co/event/1706108053686?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> PURIM FESTIVAL • COLORFUL 🪐 <br> 21 March <br> 23:00 - 07:00 </a>
-    </div>
-    <br>
-    <!-- Club 5 -->
-    <div class="club5">
-        <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65adb4d0930fb50afa1000301706911072552_coverImage.jpg" alt="Club Image" width="100" height="100">
-        <a href="https://www.go-out.co/event/1705882832368?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> PURIM HAMAM FESTIVAL <br> 22 March <br> 23:00 - 06:00 </a>
-    </div>
-    <br>
-    <!-- Club 6 -->
-    <div class="club6">
-        <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65b868f19121704963cbc7921706584302094_coverImage.jpg" alt="Club Image" width="100" height="100">
-        <a href="https://www.go-out.co/event/1706584233789?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> HANGAR TLV • PURIM FESTIVAL 🎺 <br> 22 March <br> 23:00 - 06:00 </a>
-    </div>
-    <br>
-    <!-- Club 7 -->
-    <div class="club7">
-        <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65b9b5e1ae889ebe778f53631707058490105_coverImage.jpg" alt="Club Image" width="100" height="100">
-        <a href="https://www.go-out.co/event/1706669483528?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> PURIM PSYTRIX FESTIVAL <br> 23 March <br> 22:00 - 08:00 </a>
-    </div>
-    <br>
-    <!-- Club 8 -->
-    <div class="club8">
-        <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65b1b5af11fc387e43e893561706911847037_coverImage.jpg" alt="Club Image" width="100" height="100">
-        <a href="https://www.go-out.co/event/1706145199649?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> PURIM HAMAM FESTIVAL  <br> 23 March <br> 23:00 - 05:00 </a>
-    </div>
-    <br>
-    <!-- Club 9 -->
-    <div class="club9">
-        <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65ad636f894f520af46b08031705861998478_coverImage.jpg" alt="Club Image" width="100" height="100">
-        <a href="https://www.go-out.co/event/1705861685468?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> PURIM HAMAM FESTIVAL <br> 24 March <br> 23:00 - 05:00 </a>
-    </div>
-    <br>
-    <!-- Club 10 -->
-    <div class="club10">
-        <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65c7852f11eb38c4dc70d7641707574574181_coverImage.jpg" alt="Club Image" width="100" height="100">
-        <a href="https://www.go-out.co/event/kishkush?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> Kish-Kush Festival - HAMAM <br> 29 February <br> 23:00 - 05:30 </a>
-    </div>
-</div>
+        <!-- 0.1 Parties -->
+        <div class="club" id="0.1">
+            <a href="https://www.go-out.co/event/1706665144540?ref=a3ii9aiag1" onclick="incrementViewCount()">
+                <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65b9a4b837a19a67006170fd1706665260749_coverImage.jpg" alt="Club Image">
+            </a>
+            <div class="club-details">
+                <div class="club-title">HAMISHI HAVERI • PURIM PARTY</div>
+                <div class="club-date">21 March | 23:00 - 06:00</div>
+                <a href="https://www.go-out.co/event/1706665144540?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> לפרטים ורכישת כרטיסים</a>
+            </div>
+        </div>
+
+        <!-- 0.2 Parties -->
+        <div class="club" id="0.2">
+            <a href="https://www.go-out.co/event/1706663452853?ref=a3ii9aiag1" onclick="incrementViewCount()">
+                <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65b99e7af7787b634cfb3ee71706663544122_coverImage.jpg" alt="Club Image">
+            </a>
+            <div class="club-details">
+                <div class="club-title">SHISHI HAVERI • PURIM PARTY</div>
+                <div class="club-date">22 March | 23:00 - 05:00</div>
+                <a href="https://www.go-out.co/event/1706663452853?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> לפרטים ורכישת כרטיסים</a>
+            </div>
+        </div>
+
+        <!-- 0.3 Parties -->
+        <div class="club" id="0.3">
+            <a href="https://www.go-out.co/event/1705883029587?ref=a3ii9aiag1" onclick="incrementViewCount()">
+                <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65adb595915f1cc01772a0271706909445084_coverImage.jpg" alt="Club Image">
+            </a>
+            <div class="club-details">
+                <div class="club-title">HAMISHI HAVERI • PURIM PARTY</div>
+                <div class="club-date">21 March | 23:00 - 06:00</div>
+                <a href="https://www.go-out.co/event/1705883029587?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> לפרטים ורכישת כרטיסים</a>
+            </div>
+        </div>
+
+        <!-- 0.4 Parties -->
+        <div class="club" id="0.4">
+            <a href="https://www.go-out.co/event/1706108053686?ref=a3ii9aiag1" onclick="incrementViewCount()">
+                <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65b1250e0bcaaf7e5833ba021706907197595_coverImage.jpg" alt="Club Image">
+            </a>
+            <div class="club-details">
+                <div class="club-title">PURIM FESTIVAL • COLORFUL 🪐</div>
+                <div class="club-date">21 March | 23:00 - 07:00</div>
+                <a href="https://www.go-out.co/event/1706108053686?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> לפרטים ורכישת כרטיסים</a>
+            </div>
+        </div>
+
+        <!-- 0.5 Parties -->
+        <div class="club" id="0.5">
+            <a href="https://www.go-out.co/event/1705882832368?ref=a3ii9aiag1" onclick="incrementViewCount()">
+                <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65adb4d0930fb50afa1000301706911072552_coverImage.jpg" alt="Club Image">
+            </a>
+            <div class="club-details">
+                <div class="club-title">PURIM HAMAM FESTIVAL</div>
+                <div class="club-date">22 March | 23:00 - 06:00</div>
+                <a href="https://www.go-out.co/event/1705882832368?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> לפרטים ורכישת כרטיסים</a>
+            </div>
+        </div>
+
+        <!-- 0.6 Parties -->
+        <div class="club" id="0.6">
+            <a href="https://www.go-out.co/event/1706584233789?ref=a3ii9aiag1" onclick="incrementViewCount()">
+                <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65b868f19121704963cbc7921706584302094_coverImage.jpg" alt="Club Image">
+            </a>
+            <div class="club-details">
+                <div class="club-title">HANGAR TLV • PURIM FESTIVAL 🎺</div>
+                <div class="club-date">22 March | 23:00 - 06:00</div>
+                <a href="https://www.go-out.co/event/1706584233789?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> לפרטים ורכישת כרטיסים</a>
+            </div>
+        </div>        
+        
+        <!-- 0.7 Parties -->
+        <div class="club" id="0.7">
+            <a href="https://www.go-out.co/event/1706669483528?ref=a3ii9aiag1" onclick="incrementViewCount()">
+                <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65b9b5e1ae889ebe778f53631707058490105_coverImage.jpg" alt="Club Image">
+            </a>
+            <div class="club-details">
+                <div class="club-title">PURIM PSYTRIX FESTIVAL</div>
+                <div class="club-date">23 March | 22:00 - 08:00</div>
+                <a href="https://www.go-out.co/event/1706669483528?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> לפרטים ורכישת כרטיסים</a>
+            </div>
+        </div>
+
+        <!-- 0.8 Parties -->
+        <div class="club" id="0.8">
+            <a href="https://www.go-out.co/event/1706145199649?ref=a3ii9aiag1" onclick="incrementViewCount()">
+                <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65b1b5af11fc387e43e893561706911847037_coverImage.jpg" alt="Club Image">
+            </a>
+            <div class="club-details">
+                <div class="club-title">PURIM HAMAM FESTIVAL</div>
+                <div class="club-date">23 March | 23:00 - 05:00</div>
+                <a href="https://www.go-out.co/event/1706145199649?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> לפרטים ורכישת כרטיסים</a>
+            </div>
+        </div>        
+        
+        <!-- 0.9 Parties -->
+        <div class="club" id="0.9">
+            <a href="https://www.go-out.co/event/1705861685468?ref=a3ii9aiag1" onclick="incrementViewCount()">
+                <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65ad636f894f520af46b08031705861998478_coverImage.jpg" alt="Club Image">
+            </a>
+            <div class="club-details">
+                <div class="club-title">PURIM HAMAM FESTIVAL</div>
+                <div class="club-date">24 March | 23:00 - 05:00</div>
+                <a href="https://www.go-out.co/event/1705861685468?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> לפרטים ורכישת כרטיסים</a>
+            </div>
+        </div>
+
+        <!-- 0.10 Parties -->
+        <div class="club" id="0.10">
+            <a href="https://api.get-in.com/en/305412?seller_code=tYnYdSnryep" onclick="incrementViewCount()">
+                <img src="https://static.get-in.com/gallery/tablet_cover_20240213_161726_305412.png" alt="Club Image">
+            </a>
+            <div class="club-details">
+                <div class="club-title">Duplex Purim</div>
+                <div class="club-date">24 March | 10:30 PM</div>
+                <a href="https://api.get-in.com/en/305412?seller_code=tYnYdSnryep" class="club-link" onclick="incrementViewCount()"> לפרטים ורכישת כרטיסים</a>
+            </div>
+        </div>        
+        
+        <!-- 0.11 Parties -->
+        <div class="club" id="0.11">
+            <a href="https://api.get-in.com/en/303200?seller_code=tYnYdSnryep" onclick="incrementViewCount()">
+                <img src="https://static.get-in.com/gallery/tablet_cover_20240129_171307_303200.png" alt="Club Image">
+            </a>
+            <div class="club-details">
+                <div class="club-title">ELECTION PARTY - By Atmosphere</div>
+                <div class="club-date">Feb 26 | 10:30 PM</div>
+                <a href="https://api.get-in.com/en/303200?seller_code=tYnYdSnryep" class="club-link" onclick="incrementViewCount()"> לפרטים ורכישת כרטיסים</a>
+            </div>
+        </div>
+
+        <!-- 0.12 Parties -->
+        <div class="club" id="0.12">
+            <a href="https://www.go-out.co/event/kishkush?ref=a3ii9aiag1" onclick="incrementViewCount()">
+                <img src="https://d15q6k8l9pfut7.cloudfront.net/events/65c7852f11eb38c4dc70d7641707574574181_coverImage.jpg" alt="Club Image">
+            </a>
+            <div class="club-details">
+                <div class="club-title">Kish-Kush Festival - HAMAM</div>
+                <div class="club-date">Feb 29 | 23:00 - 05:30</div>
+                <a href="https://www.go-out.co/event/kishkush?ref=a3ii9aiag1" class="club-link" onclick="incrementViewCount()"> לפרטים ורכישת כרטיסים</a>
+            </div>
+        </div>
+
+        <!-- Additional Parties for Each Category -->
+
     </main>
-    
+
 </body>
+
 </html>
