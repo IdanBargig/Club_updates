@@ -1,44 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מסיבות נוער</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>עדכוני מסיבות נוער</title>
     <style>
+        /* כללי */
         body {
-            background-color: white; /* רקע כולל */
-            color: black; /* צבע טקסט */
-            font-family: Arial, sans-serif;
-        }
-        header {
-            background-color: black; /* רקע הכותרת */
-            color: white; /* צבע הטקסט בכותרת */
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
-<style>
-        /* סגנון להגדרת צבע הלינק לשחור */
-        a {
-            color: black;
-            font-weight: bold; /* גופן מודגש (בולט) */
-            text-decoration: none; /* להסיר קווים תחתונים מהלינק */
-        }
-
-        /* סגנון עבור לינק כאשר המשתמש מעביר עליו את העכבר */
-        a:hover {
-            text-decoration: underline; /* הוספת קו תחתון בעת העברת העכבר */
-        }
-    </style>
-
-    <style>
-        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
             animation: changeColor 30s infinite;
         }
 
         @keyframes changeColor {
-            0%,
-            100% {
+            0%, 100% {
                 background-color: #FF0000;
             }
 
@@ -78,34 +56,153 @@
                 background-color: #8A2BE2;
             }
         }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        h1 {
+            margin: 0;
+            animation: glow 2s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            }
+
+            50% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+            }
+        }
+
+        nav {
+            background-color: #007BFF;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            margin: 0 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #0056b3;
+        }
+
+        main {
+            padding: 1em;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .club {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .club:hover {
+            transform: scale(1.03);
+        }
+
+        .club img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+        }
+
+        .club-details {
+            padding: 1em;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .club-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+        }
+
+        .club-date {
+            font-size: 0.9em;
+            color: #777;
+            margin-bottom: 0.5em;
+        }
+
+        .club-link {
+            color: #007BFF;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .club-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
     </style>
 </head>
+
 <body>
+
     <header>
-        <h1>מסיבות נוער</h1>
+        <h1>עדכוני מסיבות נוער</h1>
     </header>
+
     <!-- Navigation Links -->
     <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <!-- Add more navigation links as needed -->
-        </ul>
+        <a href="index.html">עדכוני מסיבות</a>
     </nav>
-    <!-- כאן תוכל להוסיף תוכן נוסף שלך -->
+
+    <!-- Main Content -->
     <main>
-    <!-- Club 1 -->
-    <div class="club1">
-        <img src="https://static.get-in.com/gallery/tablet_cover_20240213_161726_305412.png" width="100" height="100">
-        <a href="https://api.get-in.com/en/305412?seller_code=tYnYdSnryep" class="club-link" onclick="incrementViewCount()"> Duplex Purim <br> Mar 24 <br> 10:30 PM </a>
-    </div>
-    <br>
-    <!-- Club 2 -->
-    <div class="club2">
-        <img src="https://static.get-in.com/gallery/tablet_cover_20240129_171307_303200.png" width="100" height="100">
-        <a href="https://api.get-in.com/en/303200?seller_code=tYnYdSnryep" class="club-link" onclick="incrementViewCount()"> ELECTION PARTY - By Atmosphere <br> Feb 26 <br> 10:30 PM </a>
-    </div>
-</div>
+
+        <!-- 0.1 Parties -->
+        <div class="club" id="0.1">
+            <a href="https://api.get-in.com/en/305412?seller_code=tYnYdSnryep" onclick="incrementViewCount()">
+                <img src="https://static.get-in.com/gallery/tablet_cover_20240213_161726_305412.png" alt="Club Image">
+            </a>
+            <div class="club-details">
+                <div class="club-title">Duplex Purim</div>
+                <div class="club-date">24 March | 10:30 PM</div>
+                <a href="https://api.get-in.com/en/305412?seller_code=tYnYdSnryep" class="club-link" onclick="incrementViewCount()"> לפרטים ורכישת כרטיסים</a>
+            </div>
+        </div>        
+        
+        <!-- 0.2 Parties -->
+        <div class="club" id="0.2">
+            <a href="https://api.get-in.com/en/303200?seller_code=tYnYdSnryep" onclick="incrementViewCount()">
+                <img src="https://static.get-in.com/gallery/tablet_cover_20240129_171307_303200.png" alt="Club Image">
+            </a>
+            <div class="club-details">
+                <div class="club-title">ELECTION PARTY - By Atmosphere</div>
+                <div class="club-date">Feb 26 | 10:30 PM</div>
+                <a href="https://api.get-in.com/en/303200?seller_code=tYnYdSnryep" class="club-link" onclick="incrementViewCount()"> לפרטים ורכישת כרטיסים</a>
+            </div>
+        </div>
+
+        <!-- Additional Parties for Each Category -->
+
     </main>
 
 </body>
+
 </html>
