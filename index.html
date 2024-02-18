@@ -68,6 +68,16 @@
     </style>
 </head>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>סטטיסטיקות צפיות</title>
+</head>
+<body>
+    <h1>סטטיסטיקות צפיות</h1>
+    <p>כמות הצפיות באתר: <?php include('counter.php'); ?></p>
+</body>
+
 <body>
     <header>
         <h1>Club Updates</h1>
@@ -160,18 +170,6 @@
 </div>
     </main>
 
-    <!-- Display the view count -->
-    <p>The amount of times you have viewed the links now: <span id="viewCountDisplay">0</span></p>
-
-    <!-- Include other club links here with the onclick attribute calling incrementViewCount() -->
-
-    <script>
-        // Call the function to reset view count at 00:00
-        resetViewCount();
-
-        // Display the initial view count
-        document.getElementById('viewCountDisplay').innerText = localStorage.getItem('viewCount') || 0;
-    </script>
 </body>
 
 </html>
