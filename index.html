@@ -115,13 +115,6 @@
             gap: 20px;
         }
 
-        main {
-            padding: 1em;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
         .club {
             background-color: #fff;
             border: 1px solid #ddd;
@@ -200,8 +193,8 @@
     </div>
     <style>
         /* תוסיף אנימציה לתמונה כשהעכבר עליה */
-        img:hover {
-            transform: scale(1.1);
+        .club img:hover {
+            transform: scale(1.05);
         }
     </style>
 </div>
@@ -251,7 +244,7 @@
                 <img src="https://i.ibb.co/JPVcGzx/IMG-1329.png" alt="Club Image">
             </a>
             <div class="club-details">
-                <div class="ממתין</div>
+                <div class="club-title">ממתין</div>
                 <div class="club-date">ממתין</div>
                 <a href="#" class="club-link" onclick="return false;"> לפרטים ורכישת כרטיסים</a>
             </div>
