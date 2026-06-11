@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>עדכוני מסיבות לנוער</title>
+    <title>מסיבות נוער</title>
     <style>
         /* כללי */
         body {
@@ -13,8 +13,55 @@
             padding: 0;
             background-color: #f2f2f2;
             animation: changeColor 30s infinite;
-        }
+            }
 
+        .whatsapp-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* ממרכז את הכפתור מעל הטקסט */
+            z-index: 9999;
+            }
+
+        /* התאמה לטלפון */
+        @media (max-width: 600px) {
+            .whatsapp-container {
+                bottom: 15px;
+                right: 15px;
+                }
+            }
+
+        .whatsapp-glass-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(14px) saturate(160%);
+            -webkit-backdrop-filter: blur(14px) saturate(160%);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+            }
+
+        .whatsapp-glass-btn img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            }
+
+        .wa-text {
+            font-size: 14px;
+            color: #fff;
+            font-weight: bold;
+            margin: 0;
+            text-shadow: 0 0 6px rgba(0,0,0,0.6);
+            }
+        
         @keyframes changeColor {
             0%, 100% {
                 background-color: #FF0000;
@@ -108,7 +155,7 @@
             background: rgba(255, 255, 255, 0.25);
             transform: translateY(-2px);
         }
-
+        
             nav {
             display: flex;
             justify-content: center; /* מיישור לאמצע */
@@ -135,18 +182,18 @@
         }
 
         .club {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s;
-            display: flex;
-            flex-direction: column;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(12px) saturate(180%);
+        -webkit-backdrop-filter: blur(12px) saturate(180%);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        transition: transform 0.3s, box-shadow 0.3s;
         }
-
         .club:hover {
-            transform: scale(1.03);
+        transform: scale(1.04);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.25);
         }
 
         .club img {
@@ -193,65 +240,60 @@
 <body>
 
     <header>
-        <h1>עדכוני מסיבות לנוער</h1>
+        <h1>Line Party Updates</h1>
     </header>
 
     <!-- Navigation Links -->
     <nav>
         <a href="index.html">עדכוני מסיבות</a>
-        <a href="page1.html">עדכוני מסיבות לבוגרים</a>
+        <a href="page1.html">מסיבות לבוגרים</a>
     </nav>
 
-    <div style="position: fixed; bottom: 20px; right: 20px; text-align: center; z-index: 9999;">
-        <a href="https://chat.whatsapp.com/JQbv6Gv50kI58Zvf5rOMdf" style="text-decoration: none; display: inline-block; background-color: #25d366; padding: 10px; border-radius: 50%; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s;">
-            <img src="https://ibb.co/qLgPpP0D" alt="WhatsApp" style="width: 40px; height: 40px; border-radius: 50%; transition: transform 0.3s;">
-        </a>
-        <div style="display: flex; flex-direction: column; align-items: center; margin-top: 5px;">
-            <p style="font-size: 14px; color: #333; font-weight: bold; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); margin-top: 0; margin-bottom: 0;">לעוד עדכוני מסיבות</p>
-            <p style="font-size: 14px; color: #333; font-weight: bold; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); margin-top: 0; margin-bottom: 0;">הצטרפו לקבוצה שלנו</p>
-        </div>
-        <style>
-            /* תוסיף אנימציה לתמונה כשהעכבר עליה */
-            img:hover {
-                transform: scale(1.1);
-            }
-        </style>
+        <div class="whatsapp-container">
+            <a href="https://chat.whatsapp.com/J0bgV6v50kI58ZvfF0MdF" class="whatsapp-glass-btn">
+                <img src="https://i.ibb.co/78wtrq8/IMG-1329.png" alt="WhatsApp">
+            </a>
+                <p class="wa-text">לעוד עדכוני מסיבות</p>
+                <p class="wa-text">הצטרפו לקבוצה שלנו</p>
     </div>
+</div>
 
     <!-- Main Content -->
     <main>
-
         <!-- 0.1 Parties -->
         <div class="club" id="0.1">
             <a href="https://chat.whatsapp.com/JQbv6Gv50kI58Zvf5rOMdf" onclick="incrementViewCount()">
-                <img src="https://i.ibb.co/78wtrq8/IMG-1329.png" alt="Club Image">
+                <img src="https://i.ibb.co/Wvx5GfMr/Whats-App-Image-2026-06-11-at-12-00-17-1.jpg" alt="Club Image">
             </a>
             <div class="club-details">
                 <div class="club-title">שם</div>
+                <div class="club-location">מיקום</div>
                 <div class="club-date">תאריך</div>
                 <a href="https://chat.whatsapp.com/JQbv6Gv50kI58Zvf5rOMdf" class="club-link" onclick="incrementViewCount()"> לפרטים ורכישת כרטיסים</a>
             </div>
-        </div>        
-        
+        </div>
+
         <!-- 0.2 Parties -->
         <div class="club" id="0.2">
             <a href="https://chat.whatsapp.com/JQbv6Gv50kI58Zvf5rOMdf" onclick="incrementViewCount()">
-                <img src="https://i.ibb.co/78wtrq8/IMG-1329.png" alt="Club Image">
+                <img src="https://i.ibb.co/ynF1CmVd/2.jpg" alt="Club Image">
             </a>
             <div class="club-details">
                 <div class="club-title">שם</div>
+                <div class="club-location">מיקום</div>
                 <div class="club-date">תאריך</div>
                 <a href="https://chat.whatsapp.com/JQbv6Gv50kI58Zvf5rOMdf" class="club-link" onclick="incrementViewCount()"> לפרטים ורכישת כרטיסים</a>
             </div>
         </div>
 
         <!-- 0.3 Parties -->
-        <div class="club" id="0.2">
+        <div class="club" id="0.3">
             <a href="https://chat.whatsapp.com/JQbv6Gv50kI58Zvf5rOMdf" onclick="incrementViewCount()">
-                <img src="https://i.ibb.co/78wtrq8/IMG-1329.png" alt="Club Image">
+                <img src="https://i.ibb.co/67yzRQpz/3.jpg" alt="Club Image">
             </a>
             <div class="club-details">
                 <div class="club-title">שם</div>
+                <div class="club-location">מיקום</div>
                 <div class="club-date">תאריך</div>
                 <a href="https://chat.whatsapp.com/JQbv6Gv50kI58Zvf5rOMdf" class="club-link" onclick="incrementViewCount()"> לפרטים ורכישת כרטיסים</a>
             </div>
