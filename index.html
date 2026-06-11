@@ -15,41 +15,53 @@
             animation: changeColor 30s infinite;
             }
 
-        /* כפתור ווטסאפ רספונסיבי */
+        .whatsapp-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* ממרכז את הכפתור מעל הטקסט */
+            z-index: 9999;
+            }
+
+        /* התאמה לטלפון */
+        @media (max-width: 600px) {
+            .whatsapp-container {
+                bottom: 15px;
+                right: 15px;
+                }
+            }
+
         .whatsapp-glass-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 60px;
-            height: 60px;
+            width: 54px;
+            height: 54px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.18);
             border: 1px solid rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(14px) saturate(160%);
             -webkit-backdrop-filter: blur(14px) saturate(160%);
             box-shadow: 0 8px 20px rgba(0,0,0,0.35);
-            transition: transform 0.25s, box-shadow 0.25s;
             }
 
-        /* התמונה בפנים — תמיד עגולה ותמיד באמצע */
         .whatsapp-glass-btn img {
-            width: 60%;
-            height: 60%;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             object-fit: cover;
             }
 
-        /* התאמה למסכים קטנים (טלפונים) */
-        @media (max-width: 600px) {
-            .whatsapp-glass-btn {
-                width: 48px;
-                height: 48px;
-                }
-            .whatsapp-glass-btn img {
-                width: 60%;
-                height: 60%;
-                }
+        .wa-text {
+            font-size: 14px;
+            color: #fff;
+            font-weight: bold;
+            margin: 0;
+            text-shadow: 0 0 6px rgba(0,0,0,0.6);
             }
+        
         @keyframes changeColor {
             0%, 100% {
                 background-color: #FF0000;
@@ -218,13 +230,12 @@
         <a href="page2.html">מסיבות לנוער</a>
     </nav>
 
-<div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
-    <a href="https://chat.whatsapp.com/JQbv6Gv50kI58Zvf5rOMdf" class="whatsapp-glass-btn">
-        <img src="https://i.ibb.co/78wtrq8/IMG-1329.png" alt="WhatsApp">
-    </a>
-    <div style="display:flex; flex-direction:column; align-items:center; margin-top:5px;">
-        <p style="font-size:14px; color:#fff; font-weight:bold; margin:0; text-shadow:0 0 6px rgba(0,0,0,0.6);">לעוד עדכוני מסיבות</p>
-        <p style="font-size:14px; color:#fff; font-weight:bold; margin:0; text-shadow:0 0 6px rgba(0,0,0,0.6);">הצטרפו לקבוצה שלנו</p>
+        <div class="whatsapp-container">
+            <a href="https://chat.whatsapp.com/J0bgV6v50kI58ZvfF0MdF" class="whatsapp-glass-btn">
+                <img src="https://i.ibb.co/78wtqr8/IMG-1329.png" alt="WhatsApp">
+            </a>
+                <p class="wa-text">לעוד עדכוני מסיבות</p>
+                <p class="wa-text">הצטרפו לקבוצה שלנו</p>
     </div>
 </div>
 
