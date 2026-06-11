@@ -79,15 +79,34 @@
             }
         }
 
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
         nav a {
-            color: black;
+            padding: 8px 18px; /* גודל רגיל */
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 10px;
+
+            color: white;
             text-decoration: none;
-            padding: 0.5em 1em;
-            margin: 0 1em;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
-            border: 2px solid black; /* הוספת מסגרת */
-            background-color: white; /* הוספת רקע לבן */
+
+            background: rgba(255, 255, 255, 0.15); /* שקיפות */
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+
+            box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+            transition: 0.25s;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
         }
 
             nav {
